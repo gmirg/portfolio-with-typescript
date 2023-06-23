@@ -8,7 +8,7 @@ export const Banner = () => {
     <div className={styles.banner}>
       <div className={styles.mainHeader}>
         <p className="noMargin"> Hello my name is</p>
-        <h1 className="noMargin">Gerardo Mir</h1>
+        <h1 className="noMargin">GERARDO MIR</h1>
         <p className="noMargin">I'm web developer</p>
       </div>
       <div className={styles.mainimage}>

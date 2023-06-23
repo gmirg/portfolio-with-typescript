@@ -32,6 +32,15 @@
 .title {
   text-align: center;
 }
+.nodejs {
+  background-color: #68A05C;
+}
+.react {
+  background-color: #61dafb;
+}
+.html {
+  background-color: #EBEBEB ;
+}
 
 @media screen and (max-width: 700px) {
   .banner {
