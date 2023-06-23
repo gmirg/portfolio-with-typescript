@@ -3,7 +3,7 @@ import styles from './page.module.css'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import { Banner } from '../components/Banner'
-
+import { Skills } from '../components/Skills'
 export default function Home() {
   return (
     
@@ -12,6 +12,7 @@ export default function Home() {
       <div className={styles.description}>
         <Banner/>
         <Main />
+        <Skills/>
         <div>
         </div>
       </div>
