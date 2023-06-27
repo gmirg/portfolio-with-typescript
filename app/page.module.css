@@ -41,6 +41,12 @@
 .html {
   background-color: #EBEBEB ;
 }
+.bg {
+  background-color: #fff;
+}
+.nest {
+  background-color: #000;
+}
 
 @media screen and (max-width: 700px) {
   .banner {
