@@ -47,16 +47,21 @@
 .nest {
   background-color: #000;
 }
+.skills {
+  margin-top: 100px;
+}
+.shuffler {
+  display: flex;
+  flex-wrap: wrap;
 
+}
 @media screen and (max-width: 700px) {
   .banner {
     flex-direction: column-reverse;
     height: 80vh;
   }
 }
-.skills {
-  margin-top: 100px;
-}
+
 /* .main {
   display: flex;
   flex-direction: column;

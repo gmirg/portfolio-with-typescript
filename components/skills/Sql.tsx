@@ -10,10 +10,10 @@ const Sql = () => {
       height="275"
       viewBox="0 -7 61 95"
       fill="#fff"
-      fill-rule="evenodd"
+      fillRule="evenodd"
       stroke="#000"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <use xlinkHref="#A" x=".5" y=".5" />
       <symbol id="A" overflow="visible">
