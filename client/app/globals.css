@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
 @font-face {
   font-family: 'Tusker Grotesk';
-  src: url('/public/fonts/TuskerGrotesk-6500Medium.ttf');
+  src: url('../../public/fonts/TuskerGrotesk-6500Medium.ttf');
   src: local('Tusker Grotesk 6500 Medium'),
       local('TuskerGrotesk-6500Medium'),
-      url('/fonts/TuskerGrotesk-6500Medium.eot') format('embedded-opentype'),
-      url('/fonts/TuskerGrotesk-6500Medium.woff2') format('woff2'),
-      url('/fonts/TuskerGrotesk-6500Medium.woff') format('woff'),
-      url('/fonts/TuskerGrotesk-6500Medium.ttf') format('truetype');
+      url('../../public/fonts/TuskerGrotesk-6500Medium.eot') format('embedded-opentype'),
+      url('../../public/fonts/TuskerGrotesk-6500Medium.woff2') format('woff2'),
+      url('../../public/fonts/TuskerGrotesk-6500Medium.woff') format('woff'),
+      url('../../public/fonts/TuskerGrotesk-6500Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-}
+} */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,10 +45,10 @@ a {
 }
 h1, h2, h3, h4, h5,figure {
   margin: 0;
-  font-family: 'Tusker Grotesk';
   font-optical-sizing: auto;
   transition-property: opacity, transform;
   transition-duration: 0.35s;
+  font-family: var(--font-myfont);
 }
 h1 {
   font-size: 5rem;
@@ -61,7 +61,7 @@ h2 {
 p {
   margin-top: 1.5rem;
   font-size: 1.5rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-space-grotesk);
 }
 .noMargin {
   margin: 0;

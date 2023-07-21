@@ -4,7 +4,7 @@ import styles from "../app/page.module.css";
 const Main = () => {
   return (
     <section className={styles.main}>
-      <h2 className={styles.title}>Skills</h2>
+      <h2 className={styles.title}>skills</h2>
       <p className={styles.title}>
         With over ten years of experience in various disciplines. I'm your
         one-stop
