@@ -9,7 +9,7 @@ const Header = () => {
         <button type='button'>
             <Image src={Logo} alt={'logo'} />
         </button>
-        <button className={styles.contact} type='button'>Free consultation</button>
+        <button className={styles.contact} type='button'>Connect with me</button>
     </nav>
   )
 }

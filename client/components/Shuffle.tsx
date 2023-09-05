@@ -69,7 +69,7 @@ const Shuffle = () => {
   //   ));
   const Squares = ({ shuffledSquares }: any ) =>
   shuffledSquares.map((square : any, i: any) => (
-    <div key={`${square}-${i}`}>{square}</div>
+    <div className="card" key={`${square}-${i}`}>{square}</div>
   ));
 
   const SkillsShuffler = () => {

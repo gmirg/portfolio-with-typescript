@@ -1,18 +1,14 @@
 import "./globals.css";
-import localFont from "next/font/local";
-import { Space_Grotesk } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const myFont = localFont({
-  src: "../../public/fonts/Montreal-Serial-Medium-Regular.woff2",
-  display: "swap",
-  variable: "--font-myfont",
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 });
 
-const space = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-space-grotesk",
-});
 
 export const metadata = {
   title: "Portfolio",
@@ -25,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${myFont.variable} ${space.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${poppins.variable}`}>
       <body>{children}</body>
     </html>
   );
