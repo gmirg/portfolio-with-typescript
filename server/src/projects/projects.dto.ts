@@ -1,11 +1,11 @@
-import { ObjectId } from "mongoose"
+import mongoose from "mongoose"
 export class Project {
     constructor(
-      public id: ObjectId,
-      public projectTitle: string,
-      public projectDescription: string,
-      public projectimageUrl: string,
-      public projectgithubLink: string,
-      public projectdemoLink: string,
+      public _id: mongoose.Schema.Types.ObjectId | string,
+      public name: string,
+      public description: string,
+      public imageUrl: string,
+      public githubLink: string,
+      public demoLink: string,
     ) {}
   }

@@ -1,72 +1,83 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Project } from './projects.dto';
-import { ObjectId, Types } from 'mongoose';
+import { ObjectId, Schema, Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class ProjectsService {
-  private projectsDb: Project[] = [];
-  findAll(): any {
-    return [...this.projectsDb];
-  }
-  findOne(projectId: string | ObjectId) {
-    const projectIndex = this.projectsDb.find((elem) => elem.id === projectId);
-    if (projectIndex === undefined) {
+  constructor(
+    @InjectModel('Project') private readonly projectModel: Model<Project>,
+  ) {}
+
+  async findAll(): Promise<Project[]> {
+    try {
+      const projects = await this.projectModel.find().exec();
+      return projects;
+    } catch (error) {
       throw new NotFoundException();
     }
-    return projectIndex;
   }
-  create(
-    projectTitle: string,
-    projectDescription: string,
-    projectimageUrl: string,
-    projectgithubLink: string,
-    projectdemoLink: string,
-  ): any {
-    const _id  = new Types.ObjectId();
-    const newProject = new Project(
-      _id,
-      projectTitle,
-      projectDescription,
-      projectimageUrl,
-      projectgithubLink,
-      projectdemoLink,
-    );
-    this.projectsDb = this.projectsDb.concat(newProject);
-    return newProject;
-  }
-  deleteById(projectId: string | ObjectId): any {
-    const index = this.projectsDb.findIndex((elem) => elem.id === projectId);
-    if (index === -1) {
+  async findOne(projectId: string | ObjectId): Promise<Project | null> {
+    try {
+      const project = await this.projectModel.findById(projectId).exec();
+      if (!project) {
+        throw new NotFoundException();
+      }
+      return project;
+    } catch (error) {
       throw new NotFoundException();
     }
-    this.projectsDb.splice(index);
-    return { message: 'Project Deleted' };
   }
-  UpdateById(
+  async create(
+    name: string,
+    description: string,
+    imageUrl: string,
+    githubLink: string,
+    demoLink: string,
+  ): Promise<Project> {
+    try {
+      const newProject = new this.projectModel({
+        name,
+        description,
+        imageUrl,
+        githubLink,
+        demoLink,
+      });
+      const savedProject = await newProject.save();
+      return savedProject;
+    } catch (error) {
+      throw new Error('Failed to create project');
+    }
+  }
+  async deleteById(projectId: string | ObjectId): Promise<{ message: string }> {
+    try {
+      await this.projectModel.findByIdAndRemove(projectId).exec();
+      return { message: 'Project Deleted' };
+    } catch (error) {
+      throw new NotFoundException();
+    }
+  }
+  async updateById(
     id: string | ObjectId,
-    projectTitle: string,
-    projectDescription: string,
-    projectimageUrl: string,
-    projectgithubLink: string,
-    projectdemoLink: string,
-  ): any {
-    const index = this.projectsDb.findIndex((elem) => elem.id === id);
-    if (index === -1) {
+    name: string,
+    description: string,
+    imageUrl: string,
+    githubLink: string,
+    demoLink: string,
+  ): Promise<{ message: string }> {
+    try {
+      await this.projectModel
+        .findByIdAndUpdate(id, {
+          name,
+          description,
+          imageUrl,
+          githubLink,
+          demoLink,
+        })
+        .exec();
+      return { message: 'Project Updated' };
+    } catch (error) {
       throw new NotFoundException();
     }
-    const singleProject = this.projectsDb[index];
-    if (projectTitle) {
-      singleProject.projectTitle = projectTitle;
-    } else if (projectDescription) {
-        singleProject.projectDescription = projectDescription;
-    } else if (projectimageUrl) {
-        singleProject.projectimageUrl = projectimageUrl;
-    } else if (projectgithubLink) {
-        singleProject.projectgithubLink = projectgithubLink;
-    } else if (projectdemoLink) {
-        singleProject.projectdemoLink = projectdemoLink;
-    }
-    this.projectsDb[index] = singleProject;
-    return { message: 'Project Updated' };
   }
 }

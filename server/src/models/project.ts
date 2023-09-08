@@ -1,7 +1,7 @@
 import { IProject } from '../interfaces/project.interface';
-import { model, Schema } from 'mongoose';
+import { model, Schema, Document } from 'mongoose';
 
-const projectSchema: Schema = new Schema(
+export const projectSchema: Schema = new Schema(
   {
     name: {
       type: String,
@@ -28,5 +28,4 @@ const projectSchema: Schema = new Schema(
   },
   { timestamps: true },
 );
-
-export default model<IProject>('Todo', projectSchema);
+const Project = model<IProject>('Project', projectSchema);
