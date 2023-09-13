@@ -63,10 +63,7 @@ const Shuffle = () => {
 
     return array;
   };
-  // const Squares = ( {shuffledSquares  = [] } : any ) =>
-  //   shuffledSquares.map((square: ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined, i: any) => (
-  //     <div key={`${square}-${i}`}>{square}</div>
-  //   ));
+
   const Squares = ({ shuffledSquares }: any ) =>
   shuffledSquares.map((square : any, i: any) => (
     <div className="card" key={`${square}-${i}`}>{square}</div>

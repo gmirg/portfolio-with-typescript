@@ -6,6 +6,7 @@ import Main from "../components/Main";
 import { Banner } from "../components/Banner";
 import { Skills } from "../components/Skills";
 import Portfolio from "../components/Portfolio";
+import Contact from "../components/Contact";
 
 export default function Home() {
   
@@ -18,6 +19,7 @@ export default function Home() {
             <Main />
             <Skills />
             <Portfolio />
+            <Contact />
           </div>
 
           <div className={styles.center}></div>

@@ -17,7 +17,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   font-family: var(--font-poppins);
 }
 
@@ -43,7 +43,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
-h1, h2, h3, h4, h5,figure {
+h1,
+h2,
+h3,
+h4,
+h5,
+figure {
   margin: 0;
   font-optical-sizing: auto;
   transition-property: opacity, transform;
@@ -60,13 +65,12 @@ h2 {
 }
 p {
   font-size: 1.3rem;
-  
 }
 .noMargin {
   margin: 0;
 }
 button {
-  border:none;
+  border: none;
   outline: none;
   cursor: pointer;
   background-color: transparent;
