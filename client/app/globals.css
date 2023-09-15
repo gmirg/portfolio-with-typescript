@@ -75,6 +75,12 @@ button {
   cursor: pointer;
   background-color: transparent;
 }
+.content-input input,
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

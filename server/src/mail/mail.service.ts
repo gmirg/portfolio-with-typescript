@@ -9,16 +9,18 @@ export class MailService {
   async sendMail(data: Mail) {
 
     await this.mailerService.sendMail({
-      from: data.name,
+      from: `Message from yopur Portfolio`,
       // from: '"Support Team" <support@example.com>', // override default from
+      to: 'sayhello@gerardomir.dev',
       subject: '🚨🚨 New message from PORTFOLIO gerardomir.dev',
-      template: './mail.template', // `.hbs` extension is appended automatically
+      template: './mailTemplate', 
       context: { // ✏️ filling curly brackets with content
-        name: data.name,
-        email: data.email,
+        fullName: data.fullName,
+        emailAddress: data.emailAddress,
         subject: data.subject,
         message: data.message
       },
     });
+    console.log('Here!')
   }
 }

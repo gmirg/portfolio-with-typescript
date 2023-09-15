@@ -20,8 +20,8 @@ const Portfolio = () => {
 
   const [projects, setProjects] = useState<IProject[]>([]);
   return (
-    <div className="container">
-      <ul className="posts">
+    <div className={styles.container}>
+      <ul className={styles.posts}>
         {projects.map((project) => (
           <li key={project._id}>
             <Image

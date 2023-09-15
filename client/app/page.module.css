@@ -56,6 +56,12 @@
 .shuffler div {
   max-height: 275px;
 }
+.posts {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 
 .formContainer {
   display: flex;

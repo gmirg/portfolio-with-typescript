@@ -1,6 +1,6 @@
 export class Mail {
-  name: string;
-  email: string;
+  fullName: string;
+  emailAddress: string;
   subject: string;
   message: string;
 }

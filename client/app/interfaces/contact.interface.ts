@@ -1,4 +1,4 @@
-export interface IContactProps {
+export interface IContact {
     fullName: string;
     emailAddress: string;
     subject:string;
