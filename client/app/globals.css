@@ -1,18 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
-@font-face {
-  font-family: 'Tusker Grotesk';
-  src: url('../../public/fonts/TuskerGrotesk-6500Medium.ttf');
-  src: local('Tusker Grotesk 6500 Medium'),
-      local('TuskerGrotesk-6500Medium'),
-      url('../../public/fonts/TuskerGrotesk-6500Medium.eot') format('embedded-opentype'),
-      url('../../public/fonts/TuskerGrotesk-6500Medium.woff2') format('woff2'),
-      url('../../public/fonts/TuskerGrotesk-6500Medium.woff') format('woff'),
-      url('../../public/fonts/TuskerGrotesk-6500Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-} */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -26,7 +11,27 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #fff7f0;
+  
+}
+:root,
+body[data-theme="light"] {
+  --color-text-primary: #000;
+  --color-text-secondary: #ff4a57;
+  --color-bg-primary: #FCF6F4;
+  --color-bg-secondary: #caccce;
+}
+
+body[data-theme="dark"] {
+  --color-text-primary: #e3e3e3;
+  --color-text-secondary: #ff4a57;
+  --color-bg-primary: #23263a;
+  --color-bg-secondary: #2b2d41;
+}
+
+/* Apply styles to the body element based on the data-theme attribute */
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 /* body {
@@ -91,4 +96,54 @@ button {
   h1 {
     text-align: center;
   }
+}
+.toggle-btn-section {
+  margin: auto 0 auto auto;
+}
+.toggle-btn-section .toggle-checkbox {
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.toggle-btn-section .toggle-checkbox .toggle-btn__input {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.toggle-btn-section .toggle-checkbox .toggle-btn__input-label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 46px;
+  height: 20px;
+  display: block;
+  border-radius: 23px;
+  position: relative;
+  border: none;
+  margin-top: 2px;
+}
+.toggle-btn-section .toggle-checkbox .toggle-btn__input-label::after {
+  content: '?';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 5px 10px rgba(153, 153, 153, 0.4);
+  background-color: #fff;
+}
+.toggle-btn-section .toggle-checkbox .toggle-btn__input:checked ~ .toggle-btn__input-label:after {
+  background: #fff;
+  left: calc(100% - 3px);
+  transform: translateX(-100%);
+}
+.toggle-btn-section .toggle-checkbox .toggle-btn__input:checked ~ .toggle-btn__theme:after {
+  background: #fff;
+  left: calc(100% - 3px);
+  transform: translateX(-100%);
+}
+.toggle-btn-section .toggle-btn__input:checked ~ .toggle-btn__input-label {
+  background-color: #82deff;
 }

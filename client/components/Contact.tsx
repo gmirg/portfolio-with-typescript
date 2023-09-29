@@ -35,7 +35,7 @@ const Contact = () => {
         />
 
         <label htmlFor="email" className="">
-          E-mail<span className="text-red-500">*</span>
+          E-mail<span className="">*</span>
         </label>
         <input
           type="email"
@@ -74,7 +74,7 @@ const Contact = () => {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              className="text-cyan-500 ml-2"
+              className=""
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >

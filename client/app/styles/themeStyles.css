@@ -1,0 +1,17 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+      --body-bg-color: #23263a;
+      --font-color: #ff4a57;
+      --alt-font-color: #fff;
+      --div-bg-color: #2b2d41;
+    }
+  }     
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --body-bg-color:#FCF6F4 ;
+      --font-color: #222;
+      --alt-font-color: #ff4a57;
+      --div-bg-color:#caccce;
+    }
+  }  

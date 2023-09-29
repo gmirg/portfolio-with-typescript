@@ -13,6 +13,7 @@ const poppins = Poppins({
 export const metadata = {
   title: "Portfolio",
   description: "Gerardo Mir",
+  
 };
 
 export default function RootLayout({
@@ -22,6 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${poppins.variable}`}>
+      
       <body>{children}</body>
     </html>
   );

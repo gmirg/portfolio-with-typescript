@@ -1,4 +1,5 @@
 "use client";
+import { ThemeProvider } from "./contexts/themeContext";
 
 import styles from "./page.module.css";
 import Header from "../components/Header";
@@ -7,11 +8,13 @@ import { Banner } from "../components/Banner";
 import { Skills } from "../components/Skills";
 import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
+import { useState } from "react";
 
 export default function Home() {
-  
-  return (
+  const [theme, setTheme] = useState("light");
 
+  return (
+    <ThemeProvider>
         <main className={styles.container}>
           <Header />
           <div className={styles.description}>
@@ -26,6 +29,7 @@ export default function Home() {
 
           <div className={styles.grid}></div>
         </main>
-    
+
+    </ThemeProvider>
   );
 }
