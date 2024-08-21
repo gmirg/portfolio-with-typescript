@@ -19,6 +19,7 @@ const Contact = () => {
     Submit(data);
     reset();
   };
+
   return (
     <div>
       <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
@@ -67,8 +68,8 @@ const Contact = () => {
           {...register("message", { minLength: 5 })}
           placeholder="Message"
         />
-        <div className="">
-          <button className={styles.contact} type="submit">
+        <div className="buttonContainer">
+          <button className={styles.button} type="submit">
             Send
             <svg
               width="24"

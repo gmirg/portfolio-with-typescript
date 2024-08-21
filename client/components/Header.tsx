@@ -9,8 +9,9 @@ const Header = () => {
         <button type='button'>
             <Image src={Logo} alt={'logo'} />
         </button>
+        <button className={styles.button} type='button'>Connect with me</button>
         <Toggle/>
-        <button className={styles.contact} type='button'>Connect with me</button>
+        
     </nav>
   )
 }

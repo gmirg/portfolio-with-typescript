@@ -15,21 +15,22 @@ export default function Home() {
 
   return (
     <ThemeProvider>
-        <main className={styles.container}>
-          <Header />
-          <div className={styles.description}>
-            <Banner />
-            <Main />
-            <Skills />
-            <Portfolio />
-            <Contact />
-          </div>
+      <main className={styles.container}>
+        <Header />
+        <div className={styles.description}>
+          <Banner />
+          <Main />
+          <Skills />
+          <Portfolio />
+        </div>
 
-          <div className={styles.center}></div>
+        <div className={styles.center}></div>
 
-          <div className={styles.grid}></div>
-        </main>
-
+        <div className={styles.grid}></div>
+      </main>
+      <footer>
+        <Contact />
+      </footer>
     </ThemeProvider>
   );
 }

@@ -13,8 +13,8 @@ import Vite from "./skills/Vite";
 import Next from "./skills/Next";
 import Nest from "./skills/Nest";
 import styles from "../app/page.module.css";
+import { TiltCard } from "./TiltCard";
 
- 
 const Shuffle = () => {
   const skills = [
     <Html />,
@@ -29,26 +29,9 @@ const Shuffle = () => {
     <Vite />,
     <Nest />,
     <Next />,
-  ]; 
- 
-    
-  // // Fischer-Yates/Knuth shuffle algorithm
-  // const shuffle : any | string = (array : any[] = []) => {
-  //   let randIndex;
-  //   for (
-  //     let currentIndex = array.length - 1;
-  //     currentIndex > 0;
-  //     currentIndex--
-  //   ) {
-  //     randIndex = Math.floor(Math.random() * (currentIndex + 1));
-  //     [array[currentIndex], array[randIndex]] = [
-  //       array[randIndex],
-  //       array[currentIndex],
-  //     ];
-  //   }
-  //   return array;
-  // };
-  const shuffle = (array:any[]) => {
+  ];
+
+  const shuffle = (array: any[]) => {
     let currentIndex = array.length;
     let temporaryValue;
     let randomIndex;
@@ -63,23 +46,35 @@ const Shuffle = () => {
 
     return array;
   };
+  const Squares = ({ shuffledSquares }: { shuffledSquares: any }) =>
+    shuffledSquares.map((square: any, i: any) => (
+      <TiltCard key={`${square}-${i}`}>
+        <div>{square}</div>
+      </TiltCard>
+    ));
+  const [shuffledSkills, setShuffledSkills] = useState(shuffle(skills));
 
-  const Squares = ({ shuffledSquares }: any ) =>
-  shuffledSquares.map((square : any, i: any) => (
-    <div className="card" key={`${square}-${i}`}>{square}</div>
-  ));
-
-  const SkillsShuffler = () => {
-    const [shuffledSkills, setShuffledSkills] = useState(() => shuffle(skills));
-    
-    return <Squares shuffledSquares={shuffledSkills} />;
+  const reshuffleSkills = () => {
+    const newShuffledSkills = shuffle(skills);
+    setShuffledSkills(newShuffledSkills);
+    console.log(shuffledSkills);
   };
- 
+
   return (
-    <div className={styles.shuffler}>
-      <SkillsShuffler />
+    <>
+    <div className="buttonContainer">
+        <button
+          onClick={reshuffleSkills}
+          className={styles.button}
+          type="button"
+        >
+          Reshuffle!!
+        </button>
+      </div>
+    <div className={styles.shuffler}>     
+        <Squares shuffledSquares={shuffledSkills} />
     </div>
+    </>
   );
-  
 };
-export default Shuffle ;
+export default Shuffle;

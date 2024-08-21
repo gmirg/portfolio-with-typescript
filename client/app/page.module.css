@@ -1,3 +1,4 @@
+
 .container {
   margin: 0 auto;
   max-width: 1100px;
@@ -14,7 +15,7 @@
   align-items: center;
   justify-content: space-around;
 }
-.contact {
+.button {
   color: white;
   height: 3.5rem;
   font-size: 1rem;
@@ -23,21 +24,27 @@
   border: none;
   background-color: black;
 }
-.contact:hover {
+.button:hover {
   background-color: cadetblue;
   border: none;
+}
+.buttonContainer {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .title {
   text-align: center;
 }
 .nodejs {
-  background-color: #68A05C;
+  background-color: #68a05c;
 }
 .react {
   background-color: #61dafb;
 }
 .html {
-  background-color: #EBEBEB ;
+  background-color: #ebebeb;
 }
 .bg {
   background-color: #fff;
@@ -58,10 +65,9 @@
 }
 .posts {
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 
 .formContainer {
   display: flex;

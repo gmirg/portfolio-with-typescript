@@ -6,7 +6,9 @@ export const Toggle = () => {
 
   return (
     <div className="toggle-btn-section">
+      
       <div className={`toggle-checkbox m-vertical-auto`}>
+      <div className={`theme-label`}>{(theme.background === 'light' ? 'Light mode': 'Dark mode')}</div>
         <input
           className="toggle-btn__input"
           type="checkbox"
