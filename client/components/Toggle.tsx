@@ -1,25 +1,30 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../app/contexts/themeContext";
+import styles from '../app/styles/Toogle.module.css'
 
 export const Toggle = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  const toggleBtnClass = theme.background === 'light' ? styles.lightMode : styles.darkMode;
+
   return (
-    <div className="toggle-btn-section">
-      
-      <div className={`toggle-checkbox m-vertical-auto`}>
-      <div className={`theme-label`}>{(theme.background === 'light' ? 'Light mode': 'Dark mode')}</div>
+    <div className={styles.toggleBtnSection}>
+      <div className={styles.toggleCheckbox}>
+        <div className={styles.themeLabel}>
+          {theme.background === 'light' ? 'Light mode' : 'Dark mode'}
+        </div>
         <input
-          className="toggle-btn__input"
+          className={styles.toggleBtnInput}
           type="checkbox"
           name="checkbox"
-          onChange={toggleTheme} 
-          checked={theme.background === "light"} // Check the background theme
+          onChange={toggleTheme}
+          checked={theme.background === "light"} 
         />
         <button
+          aria-label="Toggle screen mode"
           type="button"
-          className={`toggle-btn__input-label`}
-          onClick={toggleTheme} // Also use toggleTheme for button click
+          className={`${styles.toggleBtnInputLabel} ${toggleBtnClass}`}
+          onClick={toggleTheme}
         ></button>
       </div>
     </div>

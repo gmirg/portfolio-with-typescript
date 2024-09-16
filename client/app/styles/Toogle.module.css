@@ -1,0 +1,63 @@
+.toggleBtnSection .toggleCheckbox {
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.toggleBtnSection .toggleCheckbox .toggleBtnInput {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.toggleBtnSection .toggleCheckbox .toggleBtnInputLabel {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 46px;
+  height: 20px;
+  display: block;
+  border-radius: 23px;
+  position: relative;
+  border: none;
+  margin-top: 2px;
+}
+.toggleBtnSection .toggleCheckbox .toggleBtnInputLabel::after {
+  content: '?';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 5px 10px rgba(153, 153, 153, 0.4);
+  background-color: #fff;
+}
+
+.toggleBtnSection .toggleCheckbox .toggleBtnInput:checked ~ .toggleBtnInputLabel {
+  background-color: #f95659;
+}
+
+.toggleBtnSection .toggleCheckbox .toggleBtnInput:checked ~ .toggleBtnInputLabel:after {
+  background: #fff;
+  left: calc(100% - 3px);
+  transform: translateX(-100%);
+}
+
+.lightMode {
+  background-color: #f95659;
+}
+
+.darkMode {
+  background-color: grey;
+} 
+
+.card svg {
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
+  width: 260px;
+  height: 260px;
+  margin: 5px;
+  border-radius: 30px;
+}
+.themeLabel {
+    margin-right: 10px;
+}

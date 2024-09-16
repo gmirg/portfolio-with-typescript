@@ -3,11 +3,12 @@ import styles from "../app/page.module.css";
 import { IContact } from "../app/interfaces/contact.interface";
 import { useForm } from "react-hook-form";
 import { Submit } from "../app/api/submit";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Contact = () => {
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
       fullName: "",
       emailAddress: "",
@@ -17,57 +18,70 @@ const Contact = () => {
   });
   const onSubmit = (data: IContact) => {
     Submit(data);
+    toast.success('Message sent successfully!');
     reset();
   };
 
-  return (
-    <div>
-      <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="">Send a message</h1>
 
-        <label htmlFor="fullname" className="">
-          Full name<span className="">*</span>
+  return (
+    <div className="styles.formContainer">
+      <form className={styles.contactForm} onSubmit={handleSubmit(onSubmit)}>
+        <h1>Send a message</h1>
+
+        <label htmlFor="fullname">
+          Full name<span>*</span>
         </label>
         <input
           type="text"
-          className=""
-          {...register("fullName", { required: true })}
+          {...register("fullName", { required: "Full name is required" })}
           placeholder="Full name"
         />
+        {errors.fullName && <p className={styles.error}>{errors.fullName.message}</p>}
 
-        <label htmlFor="email" className="">
-          E-mail<span className="">*</span>
+        <label htmlFor="email">
+          E-mail<span>*</span>
         </label>
         <input
           type="email"
-          className=""
           {...register("emailAddress", {
-            pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-
-            required: true,
+            pattern: {
+              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+              message: "Invalid email address",
+            },
+            required: "Email is required",
           })}
           placeholder="Email"
         />
+        {errors.emailAddress && <p className={styles.error}>{errors.emailAddress.message}</p>}
 
-        <label htmlFor="subject" className="">
-          Subject<span className="">*</span>
+        <label htmlFor="subject">
+          Subject<span>*</span>
         </label>
-
-        <select {...register("subject",{ required: true })}>
-          <option value="" disabled >Select...</option>
+        <select {...register("subject", { required: "Subject is required" })}>
+          <option value="" disabled>
+            Select...
+          </option>
           <option value="Collaboration">Development Collaboration</option>
           <option value="Proporsal">Job Proporsal</option>
           <option value="Other">Other</option>
         </select>
+        {errors.subject && <p className={styles.error}>{errors.subject.message}</p>}
 
-        <label htmlFor="message" className="">
-          Message<span className="">*</span>
+        <label htmlFor="message">
+          Message<span>*</span>
         </label>
         <textarea
-          className=""
-          {...register("message", { minLength: 5 })}
+          {...register("message", { 
+            minLength: {
+              value: 5,
+              message: "Message must be at least 5 characters long",
+            },
+            required: "Message is required",
+          })}
           placeholder="Message"
         />
+        {errors.message && <p className={styles.error}>{errors.message.message}</p>}
+
         <div className="buttonContainer">
           <button className={styles.button} type="submit">
             Send
@@ -75,7 +89,6 @@ const Contact = () => {
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              className=""
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
