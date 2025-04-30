@@ -24,9 +24,20 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     background: "light",
     text: "dark",
   });
+  
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+
+    if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+      setTheme({ background: "dark", text: "light" });
+    }
+  }, []);
+
   useEffect(() => {
     document.body.setAttribute("data-theme", theme.background);
-  }, [theme]);
+    localStorage.setItem("theme", theme.background);
+  }, [theme]);      
 
   const toggleTheme = () => {
     setTheme((prevTheme) => ({
